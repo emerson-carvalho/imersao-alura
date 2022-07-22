@@ -21,7 +21,7 @@ public class GeradoraDeFigurinhas {
 
         int largura = imagemOriginal.getWidth();
         int altura = imagemOriginal.getHeight();
-        int novaAltura = altura + 200;
+        int novaAltura = (int) (altura * 1.2);
         BufferedImage novaImagem = new BufferedImage(largura, novaAltura, BufferedImage.TRANSLUCENT);
 
         // copiar a imagem original para a nova imagem (em memória)
@@ -35,7 +35,7 @@ public class GeradoraDeFigurinhas {
         graphics.setFont(fonte);
 
         // escrever um texto
-        graphics.drawString("TOPZERA", (int) (largura/2 * 0.5), novaAltura - 100);
+        graphics.drawString("TOPZERA", (int) (largura/2 * 0.5), (int) (novaAltura - (novaAltura * 0.1)));
 
         // escrever a nova imagem em um arquivo
         ImageIO.write(novaImagem, "png", new File(nomeArquivo));

@@ -39,7 +39,9 @@ public class ApiImdb {
             System.out.println("\n");
         }
 
-        InputStream imagem = new URL(listaDeFilmes.get(1).get("image")).openStream();
+        String urlImagem= listaDeFilmes.get(0).get("image");
+        String urlImagemEditada = urlImagem.replaceAll("([.][_](.+)[_])","");
+        InputStream imagem = new URL(urlImagemEditada).openStream();
         var geradora = new GeradoraDeFigurinhas();
         geradora.cria(imagem, "filme2.png");
     }
