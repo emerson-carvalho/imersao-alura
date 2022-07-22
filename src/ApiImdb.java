@@ -1,4 +1,6 @@
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -37,5 +39,8 @@ public class ApiImdb {
             System.out.println("\n");
         }
 
+        InputStream imagem = new URL(listaDeFilmes.get(1).get("image")).openStream();
+        var geradora = new GeradoraDeFigurinhas();
+        geradora.cria(imagem, "filme2.png");
     }
 }
